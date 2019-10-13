@@ -27,7 +27,10 @@
 		<beans:property name="maxUploadSize" value="2097152"></beans:property>
 	</beans:bean>
 	
-	<context:component-scan base-package="com.stock.mvc" />
+	<context:component-scan base-package="com.stock.mvc" >
+	 <!-- <context:exclude-filter type="assignable" expression="com.stock.mvc.Controller.LoginController"/>
+	 -->
+	</context:component-scan>
 	
 	
 	

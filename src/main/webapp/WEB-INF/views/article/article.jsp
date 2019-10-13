@@ -69,7 +69,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">
-							<fmt:message key="common.article" />
+							<fmt:message code="common.article" />
 						</h1>
 					</div>
 					<!-- /.col-lg-12 -->
@@ -80,11 +80,11 @@
 					<div class="col-lg-12">
 						<ol class="breadcrumb">
 							<li><a href="<c:url value="/article/nouveau" />"><i
-									class="fa fa-plus">&nbsp;<fmt:message key="common.ajouter" /></i></a></li>
+									class="fa fa-plus">&nbsp;<fmt:message code="common.ajouter" /></i></a></li>
 							<li><a href="#"><i class="fa fa-download">&nbsp;<fmt:message
-											key="common.exporter" /></i></a></li>
+											code="common.exporter" /></i></a></li>
 							<li><a href="#"><i class="fa fa-upload">&nbsp;<fmt:message
-											key="common.importer" /></i></a></li>
+											code="common.importer" /></i></a></li>
 						</ol>
 					</div>
 				</div>
@@ -93,7 +93,7 @@
 					<div class="col-lg-12">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
-								<fmt:message key="article.liste" />
+								<fmt:message code="article.liste" />
 							</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
@@ -102,14 +102,14 @@
 									id="dataTables-example">
 									<thead>
 										<tr>
-											<th><fmt:message key="common.photo" /></th>
-											<th><fmt:message key="common.code" /></th>
-											<th><fmt:message key="common.designation" /></th>
-											<th><fmt:message key="common.prixUnitHT" /></th>
-											<th><fmt:message key="common.tva" /></th>
-											<th><fmt:message key="common.prixUnitTTC" /></th>
-											<th><fmt:message key="common.parametrage.category" /></th>
-											<th><fmt:message key="common.actions" /></th>
+											<th><fmt:message code="common.photo" /></th>
+											<th><fmt:message code="common.code" /></th>
+											<th><fmt:message code="common.designation" /></th>
+											<th><fmt:message code="common.prixUnitHT" /></th>
+											<th><fmt:message code="common.tva" /></th>
+											<th><fmt:message code="common.prixUnitTTC" /></th>
+											<th><fmt:message code="common.parametrage.category" /></th>
+											<th><fmt:message code="common.actions" /></th>
 										</tr>
 									</thead>
 									<tbody>
@@ -143,23 +143,23 @@
 																	<button type="button" class="close"
 																		data-dismiss="modal" aria-hidden="true">&times;</button>
 																	<h4 class="modal-title" id="myModalLabel">
-																		<fmt:message key="common.confirm.suppression" />
+																		<fmt:message code="common.confirm.suppression" />
 																	</h4>
 																</div>
 																<div class="modal-body">
-																	<fmt:message key="article.confirm.suppression.msg" />
+																	<fmt:message code="article.confirm.suppression.msg" />
 																</div>
 																<div class="modal-footer">
 																	<button type="button" class="btn btn-default"
 																		data-dismiss="modal">
-																		<fmt:message key="common.annuler" />
+																		<fmt:message code="common.annuler" />
 																	</button>
 																	<c:url
 																		value="/article/supprimer/${article.idArticle}"
 																		var="urlSuppression" />
 																	<a href="${urlSuppression }" class="btn btn-danger"><i
 																		class="fa fa-trash-o"></i>&nbsp;<fmt:message
-																			key="common.confirmer" /></a>
+																			code="common.confirmer" /></a>
 																</div>
 															</div>
 															<!-- /.modal-content -->

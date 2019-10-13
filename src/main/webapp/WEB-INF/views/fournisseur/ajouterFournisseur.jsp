@@ -50,7 +50,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header"> <fmt:message code="article.nouveau" /></h1>
+                        <h1 class="page-header"> <fmt:message code="fournisseur.nouveau" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -59,37 +59,29 @@
 	                <div class="col-lg-12">
 	                    <div class="panel panel-primary">
 	                        <div class="panel-heading">
-	                            <fmt:message code="article.nouveau" />
+	                            <fmt:message code="fournisseur.nouveau" />
 	                        </div>
 	                        <!-- /.panel-heading -->
 	                        <div class="panel-body">
-	                        	<c:url value="/article/enregistrer" var ="urlEnregistrer" />
-								<f:form modelAttribute="article" action="${urlEnregistrer }" enctype="multipart/form-data" role = "form">
-									<f:hidden path="idArticle"/>
+	                        	<c:url value="/fournisseur/enregistrer" var ="urlEnregistrer" />
+								<f:form modelAttribute="fournisseur" action="${urlEnregistrer }" enctype="multipart/form-data" role = "form">
+									<f:hidden path="idFournisseur"/>
 									<f:hidden path="photo"/>
 									<div class="form-group">
-                                        <label><fmt:message code="common.code" /></label>
-                                        <f:input path="codeArticle" class="form-control" placeholder="Code article" />
+                                        <label><fmt:message code="common.nom" /></label>
+                                        <f:input path="nom" class="form-control" placeholder="Nom" />
                                     </div>
 									<div class="form-group">
-                                        <label><fmt:message code="common.designation" /></label>
-                                        <f:input path="designation" class="form-control" placeholder="Designation" />
+                                        <label><fmt:message code="common.prenom" /></label>
+                                        <f:input path="prenom" class="form-control" placeholder="Prenom" />
                                     </div>
 									<div class="form-group">
-                                        <label><fmt:message code="common.prixUnitHT" /></label>
-                                        <f:input id="prixUnitHT" path="prixUnitaireHT" class="form-control" placeholder="Prix unitaire HT" />
+                                        <label><fmt:message code="common.adresse" /></label>
+                                        <f:input path="adresse" class="form-control" placeholder="Adresse" />
                                     </div>
 									<div class="form-group">
-                                        <label><fmt:message code="common.tva" /></label>
-                                        <f:input  id="tauxTva" path="tauxTva" class="form-control" placeholder="Taux TVA" />
-                                    </div>
-									<div class="form-group">
-                                        <label><fmt:message code="common.prixUnitTTC" /></label>
-                                        <f:input id="prixUnitTTC" path="prixUnitaireTTC" class="form-control" placeholder="Prix unitaire TTC" disabled="true"/>
-                                    </div>
-									<div class="form-group">
-                                        <label><fmt:message code="common.parametrage.category" /></label>
-                                        <f:select class="form-control" path="category.idCategory" items="${categories }" itemLabel="code" itemValue="idCategory" />
+                                        <label><fmt:message code="common.mail" /></label>
+                                        <f:input path="mail" class="form-control" placeholder="Mail" />
                                     </div>
                                     <div class="form-group">
                                         <label><fmt:message code="common.photo" /></label>
@@ -97,7 +89,7 @@
                                     </div>
                                     <div class="panel-footer">
                                     	<button type="submit" class="btn btn-primary"><i class="fa fa-save">&nbsp;<fmt:message code="common.enregister" /></i></button>
-                                    	<a href="<c:url value="/article/" />" class="btn btn-danger"> <i class="fa fa-arrow-left">&nbsp;<fmt:message code="common.annuler" /></i></a>
+                                    	<a href="<c:url value="/fournisseur/" />" class="btn btn-danger"> <i class="fa fa-arrow-left">&nbsp;<fmt:message code="common.annuler" /></i></a>
                                     </div>
 								</f:form>	                        
 	                        </div>
@@ -126,10 +118,7 @@
     <script src="<%=request.getContextPath() %>/resources/vendor/metisMenu/metisMenu.min.js"></script>
 
     <!-- Custom Theme JavaScript -->
-    <script src="<%=request.getContextPath() %>/resources/js/sb-admin-2.js"></script>
-    
-    <!-- My Custom JavaScript files -->
-    <script src="<%=request.getContextPath() %>/resources/js/article.js"></script>
+    <script src="<%=request.getContextPath() %>/resources/dist/js/sb-admin-2.js"></script>
 
 </body>
 

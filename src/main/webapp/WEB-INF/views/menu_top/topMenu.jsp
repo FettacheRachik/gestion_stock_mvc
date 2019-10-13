@@ -177,6 +177,16 @@
 			<li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
 			<li class="divider"></li>
 			
+			<c:url value="/changelocale/fr" var="frUrl" />
+			<c:url value="/changelocale/en" var="enUrl" />
+			
+			<li><a href="${frUrl }"><i class="fa fa-globe fa-fw"></i> <fmt:message code="locale.fr" /></a></li>
+			<li><a href="${enUrl }"><i class="fa fa-globe fa-fw"></i> <fmt:message code="locale.en" /></a></li>
+			<li class="divider"></li>
+			
+			<c:url value="/j_spring_security_logout" var="logout" />
+			<li><a href="${logout }"><i class="fa fa-sign-out fa-fw"></i>Logout</a></li>
+			
 		</ul> <!-- /.dropdown-user --></li>
 	<!-- /.dropdown -->
 </ul>

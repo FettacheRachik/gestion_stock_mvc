@@ -25,6 +25,8 @@ public class Utilisateur implements Serializable{
 	
 	private String photo;
 	
+	@OneToMany(mappedBy="utilisateur")
+	List <Roles> roles;
 	private boolean actived;
 	
 
