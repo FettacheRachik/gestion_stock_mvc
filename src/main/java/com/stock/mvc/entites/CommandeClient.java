@@ -1,6 +1,5 @@
 package com.stock.mvc.entites;
 
-import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -15,6 +14,8 @@ import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
+
+import org.codehaus.jackson.annotate.JsonIgnore;
 
 
 
@@ -73,13 +74,26 @@ public class CommandeClient implements Serializable{
 		this.client = client;
 	}
 
-
+	@JsonIgnore
 	public List<LigneCommandeClient> getLigneCommandeClients() {
 		return ligneCommandeClients;
 	}
 
 	public void setLigneCommandeClients(List<LigneCommandeClient> ligneCommandeClients) {
 		this.ligneCommandeClients = ligneCommandeClients;
+	}
+	
+	
+	public BigDecimal getTotalCommande () {
+		
+		if (!ligneCommandeClients.isEmpty()) {
+			
+			for(LigneCommandeClient ligneCommandeClient : ligneCommandeClients) {
+				BigDecimal totalLigne = ligneCommandeClient.getQuantite().multiply(ligneCommandeClient.getPrixUnitaire());
+				this.totalCommande = this.totalCommande.add(totalLigne);
+			}
+		}
+		return totalCommande;
 	}
 	
 	

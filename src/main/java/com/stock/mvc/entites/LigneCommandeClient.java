@@ -9,6 +9,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 
 @Entity
@@ -37,7 +39,8 @@ public class LigneCommandeClient implements Serializable {
 	public void setIdLigneCdeClt(Long id) {
 		this.idLigneCdeClt = id;
 	}
-
+	
+	@JsonIgnore
 	public Article getArticle() {
 		return article;
 	}
@@ -46,7 +49,7 @@ public class LigneCommandeClient implements Serializable {
 		this.article = article;
 	}
 
-	
+	@JsonIgnore
 	public CommandeClient getCommandeClient() {
 		return commandeClient;
 	}

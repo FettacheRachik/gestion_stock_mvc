@@ -28,7 +28,7 @@
 				<ul class="nav nav-second-level" area-expended="false">
 					<c:url value="/client/" var="client" />
 					<li><a href="${client}"><fmt:message code="common.client" /></a></li>
-					<c:url value="/commandeClient/" var="cdeClient" />
+					<c:url value="/commandeclient/" var="cdeClient" />
 					<li><a href="${cdeClient}"><fmt:message code="common.client.commande" /></a></li>
 
 				</ul>

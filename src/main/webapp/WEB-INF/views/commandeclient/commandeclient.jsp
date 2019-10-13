@@ -1,6 +1,5 @@
+
 <%@ include file="/WEB-INF/views/includes/includes.jsp" %>
-
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -52,10 +51,114 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">Blank page</h1>
+                        <h1 class="page-header"><fmt:message code = "common.client.commande" /></h1>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
+                <div class="row">
+					<div class="col-lg-12">
+						<ol class="breadcrumb">
+						  <li><a href="<c:url value="/commandeclient/nouveau" />" ><i class="fa fa-plus">&nbsp;<fmt:message code="common.ajouter" /></i></a></li>
+						  <li><a href="#"><i class="fa fa-download">&nbsp;<fmt:message code="common.exporter" /></i></a></li>
+						  <li><a href="#"><i class="fa fa-upload">&nbsp;<fmt:message code="common.importer" /></i></a></li>
+						</ol>					
+					</div>                
+                </div>
+                <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <fmt:message code="commande.client.liste" />
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th><fmt:message code="common.code" /></th>
+                                        <th><fmt:message code="common.date" /></th>
+                                        <th><fmt:message code="common.client" /></th>
+                                        <th><fmt:message code="common.total" /></th>
+                                        <th><fmt:message code="common.actions" /></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                	<c:forEach items="${commandesClient }" var = "cde">
+                                		<tr>
+	                                		<td>${cde.getCode() }</td>
+	                                		<td>${cde.getDateCommande() }</td>
+	                                		<td>${cde.getClient().getNom() }</td>
+	                                		<td>${cde.getTotalCommande() }</td>
+	                               			<td>
+	                               				<textArea id = "" style="display: none;">  </textArea>
+	                                        	<button class="btn btn-link" onclick="updateDetailCommande(${cde.getIdCommandeClient() });"><i class="fa fa-th-list"></i></button>
+	                                        	&nbsp;|&nbsp;
+	                                        	<c:url value="/commandeclient/modifier/${cde.getIdCommandeClient() }" var="urlModif" />
+	                                        	<a href="${urlModif }"><i class="fa fa-edit"></i></a>
+	                                        	&nbsp;|&nbsp;
+	                                        	<a href="javascript:void(0);" data-toggle="modal" data-target="#modalcommande${cde.getIdCommandeClient() }"><i class="fa fa-trash-o"></i></a>
+	                                        	<div class="modal fade" id="modalcommande${cde.getIdCommandeClient() }" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+													<div class="modal-dialog">
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+																<h4 class="modal-title" id="myModalLabel"><fmt:message code="common.confirm.suppression" /></h4>
+															</div>
+															<div class="modal-body">
+																<fmt:message code="article.confirm.suppression.msg" />
+															</div>
+															<div class="modal-footer">
+																<button type="button" class="btn btn-default" data-dismiss="modal"><fmt:message code="common.annuler" /></button>
+																<c:url value="/commandeclient/supprimer/${cde.getIdCommandeClient() }" var="urlSuppression" />
+																<a href="${urlSuppression }" class="btn btn-danger"><i class="fa fa-trash-o"></i>&nbsp;<fmt:message code="common.confirmer" /></a>
+															</div>
+														</div>
+														<!-- /.modal-content -->
+													</div>
+													<!-- /.modal-dialog -->
+												</div>
+	                                        </td>
+                                        </tr>
+                                	</c:forEach>
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
+            <!-- Details de la commande -->
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <fmt:message code="commande.client.detail" />
+                        </div>
+                        <!-- /.panel-heading -->
+                        <div class="panel-body">
+                            <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                <thead>
+                                    <tr>
+                                        <th><fmt:message code="common.article" /></th>
+                                        <th><fmt:message code="common.qte" /></th>
+                                        <th><fmt:message code="common.prixUnitTTC" /></th>
+                                        <th><fmt:message code="common.total" /></th>
+                                    </tr>
+                                </thead>
+                                <tbody id = "detailCommande">
+                                </tbody>
+                            </table>
+                            <!-- /.table-responsive -->
+                        </div>
+                        <!-- /.panel-body -->
+                    </div>
+                    <!-- /.panel -->
+                </div>
+                <!-- /.col-lg-12 -->
+            </div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
@@ -76,6 +179,9 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="<%=request.getContextPath() %>/resources/dist/js/sb-admin-2.js"></script>
+    
+    <!-- My Custom JavaScript files -->
+    <script src="<%=request.getContextPath() %>/resources/javascript/commandeClient.js"></script>
 
 </body>
 
