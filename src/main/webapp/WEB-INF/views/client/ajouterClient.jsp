@@ -60,7 +60,7 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<h1 class="page-header">
-							<fmt:message key="client.nouveau" />
+							<fmt:message code="client.nouveau" />
 						</h1>
 					</div>
 					<!-- /.col-lg-12 -->
@@ -70,7 +70,7 @@
 					<div class="col-lg-12">
 						<div class="panel panel-primary">
 							<div class="panel-heading">
-								<fmt:message key="client.nouveau" />
+								<fmt:message code="client.nouveau" />
 							</div>
 							<!-- /.panel-heading -->
 							<div class="panel-body">
@@ -80,35 +80,35 @@
 									<f:hidden path="idClient" />
 									<f:hidden path="photo" />
 									<div class="form-group">
-										<label><fmt:message key="common.nom" /></label>
+										<label><fmt:message code="common.nom" /></label>
 										<f:input path="nom" class="form-control" placeholder="Nom" />
 									</div>
 									<div class="form-group">
-										<label><fmt:message key="common.prenom" /></label>
+										<label><fmt:message code="common.prenom" /></label>
 										<f:input path="prenom" class="form-control"
 											placeholder="Prenom" />
 									</div>
 									<div class="form-group">
-										<label><fmt:message key="common.adresse" /></label>
+										<label><fmt:message code="common.adresse" /></label>
 										<f:input path="adresse" class="form-control"
 											placeholder="Adresse" />
 									</div>
 									<div class="form-group">
-										<label><fmt:message key="common.mail" /></label>
+										<label><fmt:message code="common.mail" /></label>
 										<f:input path="mail" class="form-control" placeholder="Mail" />
 									</div>
 									<div class="form-group">
-										<label><fmt:message key="common.photo" /></label> <input
+										<label><fmt:message code="common.photo" /></label> <input
 											type="file" name="file">
 									</div>
 									<div class="panel-footer">
 										<button type="submit" class="btn btn-primary">
 											<i class="fa fa-save">&nbsp;<fmt:message
-													key="common.enregister" /></i>
+													code="common.enregister" /></i>
 										</button>
 										<a href="<c:url value="/client/" />" class="btn btn-danger">
 											<i class="fa fa-arrow-left">&nbsp;<fmt:message
-													key="common.annuler" /></i>
+													code="common.annuler" /></i>
 										</a>
 									</div>
 								</f:form>

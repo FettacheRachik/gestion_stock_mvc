@@ -84,7 +84,7 @@ public class CommandeClientController {
 			return null;
 		}
 		
-		modelCommande.getCommande().setClient(client);
+		if (client !=null)modelCommande.getCommande().setClient(client);
 		
 		return client;
 	}
@@ -111,13 +111,15 @@ public class CommandeClientController {
 		Article article = articleService.getById(idArticle);
 		if (article == null) {
 			return null;
+		}else {
+			System.err.println("Article supprimé");
 		}
 		return modelCommande.supprimerLigneCommande(article);
 	}
 	
 	@RequestMapping(value = "/enrigstrerCommande", produces = "application/json")
 	@ResponseBody
-	public StringResponse enrgistrerCommande(HttpServletRequest request) {
+	public String enrgistrerCommande(HttpServletRequest request) {
 		CommandeClient nouvelleCommande = null;
 		if (modelCommande.getCommande() != null) {
 			nouvelleCommande = commandeService.save(modelCommande.getCommande());
@@ -137,7 +139,7 @@ public class CommandeClientController {
 			}
 		}
 		
-		return new StringResponse(request.getContextPath() + "/commandeclient");
+		return "redirect:/commandeclient";
 	}
 
 }
