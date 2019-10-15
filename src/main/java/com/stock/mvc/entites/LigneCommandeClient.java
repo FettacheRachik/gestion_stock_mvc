@@ -40,7 +40,7 @@ public class LigneCommandeClient implements Serializable {
 		this.idLigneCdeClt = id;
 	}
 	
-	@JsonIgnore
+	
 	public Article getArticle() {
 		return article;
 	}
@@ -72,5 +72,13 @@ public class LigneCommandeClient implements Serializable {
 
 	public void setPrixUnitaire(BigDecimal prixUnitaire) {
 		this.prixUnitaire = prixUnitaire;
+	}
+	
+	public String toString() {
+		
+		return "code article " + this.article.getCodeArticle() + "quantite : " 
+		+  this.quantite + " client : " + this.commandeClient.getClient().getNom()
+		+ " prix unitaire " +  this.prixUnitaire
+		;
 	}
 }

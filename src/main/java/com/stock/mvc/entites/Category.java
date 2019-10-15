@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 
 
@@ -52,7 +54,7 @@ public class Category implements Serializable{
 		this.designation = designation;
 	}
 
-	
+	@JsonIgnore
 	public List<Article> getArticles() {
 		return articles;
 	}

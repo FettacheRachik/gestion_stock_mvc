@@ -85,7 +85,7 @@
                                     </div>
 									<div class="form-group">
                                         <label><fmt:message code="common.prixUnitTTC" /></label>
-                                        <f:input id="prixUnitTTC" path="prixUnitaireTTC" class="form-control" placeholder="Prix unitaire TTC" disabled="true"/>
+                                        <f:input id="prixUnitTTC" path="prixUnitaireTTC" class="form-control" placeholder="Prix unitaire TTC"/>
                                     </div>
 									<div class="form-group">
                                         <label><fmt:message code="common.parametrage.category" /></label>

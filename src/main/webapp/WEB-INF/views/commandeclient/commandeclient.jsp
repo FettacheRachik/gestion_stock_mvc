@@ -90,7 +90,7 @@
 	                                		<td>${cde.getClient().getNom() }</td>
 	                                		<td>${cde.getTotalCommande() }</td>
 	                               			<td>
-	                               				<textArea id = "" style="display: none;">  </textArea>
+	                               				<textArea id = "json${cde.getIdCommandeClient() }" style="display: none;">${cde.getLigneCommandeJson() }  </textArea>
 	                                        	<button class="btn btn-link" onclick="updateDetailCommande(${cde.getIdCommandeClient() });"><i class="fa fa-th-list"></i></button>
 	                                        	&nbsp;|&nbsp;
 	                                        	<c:url value="/commandeclient/modifier/${cde.getIdCommandeClient() }" var="urlModif" />

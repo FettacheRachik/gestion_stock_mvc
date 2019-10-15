@@ -13,5 +13,8 @@ tvaKeyUpFunction = function (){
 	var prixUnitTTC= parseFloat((prixUnitHT*(tauxTva/100))+ prixUnitHT);
 	
 	$("#prixUnitTTC").val(prixUnitTTC);
+
+	var value= $("#prixUnitTTC").val();
+	console.log("pru Unit ttc" + value);
 	
 }

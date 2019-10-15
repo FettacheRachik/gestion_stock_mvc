@@ -82,8 +82,11 @@ public class ArticleController {
 					}
 				}
 				if (article.getIdArticle() != null) {
+					
+					
 					artService.update(article);
 				} else {
+					System.err.println("prix unitaire ttc " + article.getPrixUnitaireTTC());
 					artService.save(article);
 				}
 			}

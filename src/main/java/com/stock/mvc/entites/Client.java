@@ -8,6 +8,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.codehaus.jackson.annotate.JsonIgnore;
+
 
 
 @Entity
@@ -82,7 +84,7 @@ public class Client implements Serializable{
 		this.mail = mail;
 	}
 
-	
+	@JsonIgnore
 	public List<CommandeClient> getCommandeClients() {
 		return commandeClients;
 	}

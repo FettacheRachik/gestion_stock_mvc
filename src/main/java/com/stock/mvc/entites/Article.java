@@ -77,6 +77,8 @@ public class Article implements Serializable{
 		this.tauxTva = tauxTva;
 	}
 
+	
+
 	public BigDecimal getPrixUnitaireTTC() {
 		return prixUnitaireTTC;
 	}
@@ -101,3 +103,4 @@ public class Article implements Serializable{
 		this.category = category;
 	}	
 }
+

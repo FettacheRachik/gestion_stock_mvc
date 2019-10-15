@@ -1,5 +1,6 @@
 package com.stock.mvc.entites;
 
+import java.io.IOException;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
@@ -15,7 +16,10 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import org.codehaus.jackson.JsonGenerationException;
 import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 
 
 
@@ -84,17 +88,40 @@ public class CommandeClient implements Serializable{
 	}
 	
 	
-	public BigDecimal getTotalCommande () {
-		
+	public BigDecimal getTotalCommande() {
+		totalCommande = BigDecimal.ZERO;
 		if (!ligneCommandeClients.isEmpty()) {
-			
-			for(LigneCommandeClient ligneCommandeClient : ligneCommandeClients) {
-				BigDecimal totalLigne = ligneCommandeClient.getQuantite().multiply(ligneCommandeClient.getPrixUnitaire());
-				this.totalCommande = this.totalCommande.add(totalLigne);
+			for (LigneCommandeClient ligneCommandeClient : ligneCommandeClients) {
+				if (ligneCommandeClient.getQuantite() != null && ligneCommandeClient.getPrixUnitaire() != null) {
+					BigDecimal totalLigne = ligneCommandeClient.getQuantite().multiply(ligneCommandeClient.getPrixUnitaire());
+					totalCommande = totalCommande.add(totalLigne);
+				}
 			}
 		}
 		return totalCommande;
 	}
+	@Transient
+	public String getLigneCommandeJson() {
+		if (!ligneCommandeClients.isEmpty()) {
+			ObjectMapper mapper = new ObjectMapper();
+			try {
+				return mapper.writeValueAsString(ligneCommandeClients);
+			} catch (JsonGenerationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (JsonMappingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+		}
+		
+		return "";
+	}
+	
 	
 	
 	
